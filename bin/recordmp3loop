@@ -10,10 +10,10 @@ echo "starting loop record of ${NSEC}s at ${RATE}kbps at $(date +"%Y-%m-%d_%H-%M
 read -r STOP < $DIR/stop
 
 until [ $STOP -eq 1 ]; do
-    read -r STOP < $DIR/stop
     #echo "STOP: $STOP"; sleep 1
     DT=$(date +"%Y-%m-%d_%H-%M-%S")  # current date & time for filename
     arecord -f cd -c2 -d $NSEC | lame -b $RATE - $DIR/$DT.mp3
+    read -r STOP < $DIR/stop
 done
 
 # cruft
