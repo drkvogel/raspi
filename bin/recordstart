@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo 0 > /home/pi/sounds/loop/stop
+/home/pi/projects/raspi/bin/recordmp3loop > /home/pi/sounds/loop/record.log 2>&1 &
+

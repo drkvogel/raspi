@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#aplay --device=plughw:1,0 match0.wav
+aplay $1

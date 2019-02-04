@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "please supply some words to say";
+    exit;
+fi
+
+sudo espeak "$1" 2>/dev/null
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#arecord -V mono --device=hw:1,0 --format S16_LE --rate 44100 -c1 ./test.wav
+#aplay --device=plughw:1,0 match0.wav
+echo "[ ] play/pause [f] next [d] prev [b] begin [.,] fwd/rwd [:;] ffwd/frwd [><] sfwd/srwd [+/-] vol [h] help [q] quit"
+mpg123 -v -C "$1"

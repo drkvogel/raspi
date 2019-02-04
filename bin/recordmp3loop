@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Record NSEC long MP3 files continuously 
+
+NSEC=3600  # how many seconds long each mp3 file should be
+RATE=128   # MP3 bitrate in kbps
+DIR="/home/pi/sounds/loop"
+
+echo "starting loop record of ${NSEC}s at ${RATE}kbps at $(date +"%Y-%m-%d_%H-%M-%S")"
+read -r STOP < $DIR/stop
+
+until [ $STOP -eq 1 ]; do
+    read -r STOP < $DIR/stop
+    #echo "STOP: $STOP"; sleep 1
+    DT=$(date +"%Y-%m-%d_%H-%M-%S")  # current date & time for filename
+    arecord -f cd -c2 -d $NSEC | lame -b $RATE - $DIR/$DT.mp3
+done
+
+# cruft
+
+    #  arecord -f S16_LE -c2 -r8000 -t raw -D plughw:1,0 -d $NSEC | lame -r -s 8 -b 64 - $DIR/$DT.mp3
+    #  arecord -f cd -c2 -d 300 | lame -b 128 - mp3test.mp3

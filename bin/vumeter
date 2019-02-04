@@ -1,0 +1,4 @@
+#!/bin/bash
+
+arecord -vv -f cd /dev/null
+

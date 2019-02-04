@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then
+    echo "please supply a filename to record to"
+    exit
+fi
+
+  #DT=$(date +"%Y-%m-%d_%H-%M-%S")  # current date & time for filename
+#  arecord -f S16_LE -c2 -r8000 -t raw -D plughw:1,0 -d $NSEC | lame -r -s 8 -b 64 - $DIR/$DT.mp3
+  arecord -f cd -c2 -d 300 | lame -b 128 - "$1" 
+

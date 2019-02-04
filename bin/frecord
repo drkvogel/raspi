@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ffmpeg -i default -ac 2 -ar 8000 -map 0:0 -acodec libmp3lame -b:a 96k -f segment -timestamp 'now' -segment_time 120 ChA_%Y-%m-%d_%H-%M-%S.mp3

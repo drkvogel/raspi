@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#echo "\$#: $#"
+#exit
+
+if [ $# != 1 ]; then
+    echo "please supply a filename to record to"
+    exit
+fi
+
+#arecord -V mono --device=hw:1,0 --format S16_LE --rate 44100 -c1 ./test.wav
+arecord -vv -f cd $1
+
