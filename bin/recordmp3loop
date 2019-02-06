@@ -16,6 +16,8 @@ until [ $STOP -eq 1 ]; do
     read -r STOP < $DIR/stop
 done
 
+echo "finished loop record at $(date +"%Y-%m-%d_%H-%M-%S")"
+
 # cruft
 
     #  arecord -f S16_LE -c2 -r8000 -t raw -D plughw:1,0 -d $NSEC | lame -r -s 8 -b 64 - $DIR/$DT.mp3
